@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.AboutPage"
+             xmlns:cntl="clr-namespace:Ballectics.App.Views.About"
+             xmlns:headerControl="clr-namespace:Ballectics.App.Views"
+             Shell.TabBarIsVisible="True"
+             Shell.NavBarIsVisible="False"
+             Title="AboutPage">
+    <Grid Margin="0" RowDefinitions="70,*">
+        <VerticalStackLayout Grid.Row="0" Margin="0">
+            <!-- Header Icon -->
+            <headerControl:HeaderIcon/>
+        </VerticalStackLayout>
+
+        <ScrollView Margin="0" Grid.Row="1">
+
+            <VerticalStackLayout Spacing="0" x:Name="MainStack">
+
+
+                <!-- Header About -->
+
+                <cntl:AboutHeaderAboutImage/>
+                <cntl:AboutContentFirst/>
+                <cntl:AboutContentSecond/>
+                <cntl:AboutContentThird/>
+                <cntl:AboutFooter/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

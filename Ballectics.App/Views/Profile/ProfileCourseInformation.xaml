@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.Profile.ProfileCourseInformation">
+    <VerticalStackLayout  Spacing="2">
+        <Label Text="Sitzungsinformationen" 
+           FontSize="45" 
+           FontAttributes="Bold" 
+           FontFamily="beautyR" 
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+           TextColor="Red"
+           x:Name="txtTitle"/>
+        <Border BackgroundColor="Transparent"
+            Stroke="#E4C9C9"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,20,20" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Margin="15" Spacing="10">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Sitzung insgesamt: " 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                />
+                    <Label Text="{Binding CourseInfo.Total, StringFormat='{0:N0}'}" 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="DarkBlue"
+                />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Verwendete Sitzung: " 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                />
+                    <Label Text="{Binding CourseInfo.Used, StringFormat='{0:N0}'}" 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="IndianRed"
+                />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="Sitzung verbleiben: " 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                />
+                    <Label  Text="{Binding CourseInfo.Rebase, StringFormat='{0:N0}'}" 
+                        FontSize="18" 
+                        FontFamily="robotoR" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        TextColor="SeaGreen"
+                />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+</ContentView>

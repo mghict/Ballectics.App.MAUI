@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.Profile.ProfileInformation"
+             xmlns:helper="clr-namespace:Ballectics.App.Helper">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <helper:PhoneNumberFormatter x:Key="PhoneNumberFormatter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+
+    <VerticalStackLayout Spacing="2">
+        <Label Text="Personenprofil" 
+               FontSize="45" 
+               FontAttributes="Bold" 
+               FontFamily="beautyR" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               TextColor="Red"
+               x:Name="txtTitle"/>
+        <Border BackgroundColor="Transparent"
+                Stroke="#E4C9C9"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0,0,20,20" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Margin="15" Spacing="10">
+                <Label Text="{Binding PersonInfo.FullName}" 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Label Text="{Binding PersonInfo.Mobile,Converter={StaticResource PhoneNumberFormatter}}" 
+                       FontSize="18" 
+                       FontFamily="robotoR" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"/>
+                <Label  Text="{Binding PersonInfo.Email}" 
+                        FontSize="18" 
+                        FontFamily="robotoR" 
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        />  
+            </VerticalStackLayout>
+        </Border>
+    </VerticalStackLayout>
+
+</ContentView>

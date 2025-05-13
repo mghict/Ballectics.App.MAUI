@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.About.AboutContentFirst">
+    <VerticalStackLayout >
+        <Image Source="aboutpageimage01.png"
+            Aspect="AspectFill"
+            HeightRequest="500" 
+            Margin="0,20,10,0"/>
+
+        <Label Text="Ballett ist meine Passion. Diese zu teilen, betrachte ich als persönliches Glück."
+           FontSize="22"
+           VerticalTextAlignment="Start"
+           HorizontalTextAlignment="Start"
+           LineBreakMode="WordWrap"
+           FontAutoScalingEnabled="True"
+           FontFamily="latoB"
+           Margin="35,0,25,5"
+           />
+        <Label Text="mit 8 Jahren zum Ballett. Einmal vom Ballett-Fieber gepackt, wurde mir gestattet gleich zu Beginn zwei Ausbildungsjahre zu überspringen und nach zwei weiteren Jahren an die Staatliche Ballettschule Berlin zu wechseln, um Profitänzerin zu werden."
+           FontSize="18"
+           FontAutoScalingEnabled="True"
+           LineBreakMode="WordWrap"
+           VerticalTextAlignment="Start"
+           HorizontalTextAlignment="Start"
+           Margin="35,15,30,15"
+           LineHeight="1.3"
+           />
+        <Label Text="Der Traum von einer Ballett-Karriere endete abrupt aus gesundheitlichen Gründen."
+           FontSize="18"
+           VerticalTextAlignment="Start"
+           HorizontalTextAlignment="Start"
+           LineBreakMode="WordWrap"
+           FontAutoScalingEnabled="True"
+           Margin="35,15,30,15"
+           LineHeight="1.3"
+           />
+        <Label Text="Diese Zäsur brachte mich zum ersten Mal dazu, darüber nachzudenken, wie man Ballett mit einer gesundheitsbewussteren Methode erlernen kann. Das war die Geburtsstunde von Balletics.By.Nina. Mit ihr entwickelte ich Schritt für Schritt eine gesündere, schonende und innovative Methode des Ganzkörpertrainings. Ballett ist meine Passion. Dies sage ich ohne jede Übertreibung. Lass Dich in meine Welt einladen."
+           FontSize="18"
+           VerticalTextAlignment="Start"
+           HorizontalTextAlignment="Start"
+           LineBreakMode="WordWrap"
+           FontAutoScalingEnabled="True"
+           Margin="35,15,30,15"
+           LineHeight="1.3"
+           />
+
+    </VerticalStackLayout>
+</ContentView>

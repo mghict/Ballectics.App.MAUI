@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.About.AboutContentSecond">
+    <Border StrokeShape="RoundRectangle 15,15,0,0"
+    Background="Black" Margin="0,20,0,0">
+
+        <Grid BackgroundColor="#E4C9C9" 
+          RowDefinitions="auto,auto,auto"
+          Margin="0">
+
+
+            <Label Grid.Row="0"
+           FontFamily="beautyR"
+           FontSize="28"
+           FontAttributes="Bold"
+           Margin="0,50,0,0"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Start"
+            LineBreakMode="WordWrap"
+           Text="Balletics.By.Nina - die eleganteste Art,"/>
+
+            <Label Grid.Row="1"
+           FontFamily="beautyR"
+           FontSize="30"
+           FontAttributes="Bold"
+           Margin="0,-5,0,30"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Start"
+            LineBreakMode="WordWrap"
+           Text="Deinen Körper zu trainieren"/>
+            <VerticalStackLayout Grid.Row="2">
+                <Label 
+               FontFamily="homB"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Start"
+               LineBreakMode="WordWrap"
+               FontSize="16"
+               CharacterSpacing="1"
+               Margin="20,10,20,10"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+                LineHeight="1.5"
+               Text="Mein Fokus liegt auf einem effizienten Training. Das Ziel ist dabei nicht ein perfektes Idealbild, sondern ein gesunder, leistungsfähiger Körper, in dem Du Dich wohlfühlst. Wir stellen das Substanzielle in den Vordergrund und arbeiten nicht auf eine jährliche Bühnenvorstellung hin."
+            />
+                <Label 
+               FontFamily="homB"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Start"
+               LineBreakMode="WordWrap"
+               FontSize="16"
+               CharacterSpacing="1"
+               Margin="20,10,20,10"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+                LineHeight="1.5"
+               Text="Balletics.By.Nina ist sowohl für Dich, die aktive Powerfrau, als auch für Dich, die Mama geeignet, deren Tochter meinen Kinder-Kurs besucht, während sie einen Chillout-Kaffee trinkt. Bei mir wird nicht nur Sport getrieben, bei Balletics.By.Nina treffen aufgeschlossene Menschen aufeinander, welche neben der gesunden Bewegung auch nette Kontakte pflegen wollen."
+            />
+                <Label 
+               FontFamily="homB"
+                FontAttributes="Bold"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="Start"
+                LineBreakMode="WordWrap"
+               FontSize="16"
+               CharacterSpacing="1"
+               Margin="20,10,20,10"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+                LineHeight="1.5"
+               Text="Balletics.By.Nina ist sowohl für Dich, die aktive Powerfrau, als auch für Dich, die Mama geeignet, deren Tochter meinen Kinder-Kurs besucht, während sie einen Chillout-Kaffee trinkt. Bei mir wird nicht nur Sport getrieben, bei Balletics.By.Nina treffen aufgeschlossene Menschen aufeinander, welche neben der gesunden Bewegung auch nette Kontakte pflegen wollen."
+            />
+
+                <BoxView HeightRequest="1"
+                 Color="Gray"
+                 HorizontalOptions="Fill"
+                 Margin="20,20,20,40"/>
+
+            </VerticalStackLayout>
+
+        </Grid>
+    </Border>
+</ContentView>

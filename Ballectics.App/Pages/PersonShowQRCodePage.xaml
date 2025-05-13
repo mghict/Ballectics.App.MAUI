@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.PersonShowQRCodePage"
+             Title="PersonShowQRCodePage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             xmlns:local="clr-namespace:Ballectics.App.ViewModels"
+             BackgroundColor="#E4C9C9">
+    <VerticalStackLayout VerticalOptions="Center"
+                     HorizontalOptions="Center"
+                     x:DataType="local:PersonBaseViewModel">
+        <Frame CornerRadius="30"
+               HeightRequest="300"
+               WidthRequest="300" 
+               BackgroundColor="WhiteSmoke"
+               VerticalOptions="Center"
+               HorizontalOptions="Center">
+            <zxing:BarcodeGeneratorView
+                      HeightRequest="300"
+                      WidthRequest="300"
+                      ForegroundColor="DarkBlue"
+                      Format="QrCode"
+                      Margin="3"
+                      Value="{Binding GetQrCodeTextCommand}"
+                      x:Name="QrImage"/>
+        </Frame>
+        <ImageButton Source="share.png"
+                     WidthRequest="40"
+                     HeightRequest="40"
+                     Aspect="AspectFill"
+                     VerticalOptions="End"
+                     HorizontalOptions="Center"
+                     Margin="30"
+                     Command="{Binding ShareQRCodeCommand}" />
+    </VerticalStackLayout>
+</ContentPage>

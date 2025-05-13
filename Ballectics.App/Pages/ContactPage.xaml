@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.ContactPage"
+             Title="ContactPage"
+             Shell.TabBarIsVisible="True"
+             Shell.NavBarIsVisible="False"
+             xmlns:cntl="clr-namespace:Ballectics.App.Views"
+             xmlns:local="clr-namespace:Ballectics.App.ViewModels">
+    <Grid Margin="0" RowDefinitions="70,*" x:DataType="local:EmailViewModel">
+        <VerticalStackLayout Grid.Row="0" Margin="0">
+            <cntl:HeaderIcon/>
+        </VerticalStackLayout>
+
+        <ScrollView Margin="0" Grid.Row="1">
+            <VerticalStackLayout  Margin="0,0,0,0">
+                <Label FontFamily="beautyR"
+                   Text="Kontakt"
+                   TextColor="#E4C9C9"
+                   FontSize="80"
+                   CharacterSpacing="1"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Margin="0,20,0,0"
+                   />
+                <Label FontFamily="corVW"
+                   Text="Melde Dich bei uns!"
+                   TextColor="Black"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Margin="0,-20,0,0"
+                   />
+                <Label FontFamily="homR"
+                   Text="Du möchtest Dein Kind anmelden oder bist selbst an einem Kurs interessiert? Du bist Werbepartner, Trainer/in oder Tänzer/in oder suchst ein Studio? Dann melde Dich einfach unter den hier angegebenen Kontakten."
+                   TextColor="Black"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Start"
+                   Margin="20,10,20,10"
+                   />
+
+                <Border StrokeShape="RoundRectangle 10,10,10,10"
+                    Margin="10,30,10,10"
+                    Stroke="#E4C9C9"
+                    StrokeThickness="2"
+                    >
+                    <VerticalStackLayout>
+
+                        <Entry Placeholder="Vorname" 
+                           Margin="20,10,20,10" 
+                           TextColor="Black" 
+                           PlaceholderColor="DarkGray" 
+                           Text="{Binding EmailInfo.FullName,Mode=TwoWay}" />
+                        <Label Text="{Binding FullNameError}" 
+                           TextColor="Red" 
+                           FontSize="12" 
+                           Margin="20,0,0,0"/>
+
+                        <Entry Placeholder="E-Mail" 
+                           Margin="20,0,20,10" 
+                           TextColor="Black" 
+                           PlaceholderColor="DarkGray" 
+                           Text="{Binding EmailInfo.Email,Mode=TwoWay}" />
+                        <Label Text="{Binding EmailError}" 
+                           TextColor="Red" 
+                           FontSize="12" 
+                           Margin="20,0,0,0"/>
+
+                        <Editor Placeholder="Deine Nachricht" 
+                            Margin="20,0,20,10" 
+                            TextColor="Black" 
+                            PlaceholderColor="DarkGray"
+                            HeightRequest="150" 
+                            Text="{Binding EmailInfo.Message,Mode=TwoWay}" />
+                        <Label Text="{Binding MessageError}" 
+                           TextColor="Red" 
+                           FontSize="12" 
+                           Margin="20,0,0,0" />
+
+                        <Label Text="Wenn du dein Kind für eine Probezeit anmelden möchtest, teile uns bitte das Alter und die bevorzugten Trainingszeiten mit. Wir freuen uns darauf, euch kennenzulernen und gemeinsam die Welt des Balletts zu entdecken!" 
+                           FontFamily="homR"
+                           FontSize="14"
+                           Margin="10"
+                           HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="Center"
+                        />
+                        <Grid ColumnDefinitions="0.2*,*"  Margin="10">
+                            <CheckBox Grid.Column="0"
+                                  IsChecked="{Binding IsAcceptRules,Mode=TwoWay}" VerticalOptions="Start"
+                                  HorizontalOptions="End"
+                                  CheckedChanged="CheckBox_CheckedChanged"/>
+                            <Label Grid.Column="1" 
+                               Text="Ich habe die Datenschutzerklärung gelesen und verstanden.*"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center"
+                               HorizontalTextAlignment="Start"
+                               VerticalTextAlignment="Center"
+                               FontSize="15"
+                               Margin="0,0,10,20"
+                               />
+                        </Grid>
+
+                        <Button  Text="Senden"
+                             Margin="10" 
+                             IsEnabled="{Binding IsAcceptRules}"
+                             Command="{Binding SendEmailCommand}">
+                            <Button.Triggers>
+                                <DataTrigger TargetType="Button" 
+                                         Binding="{Binding IsAcceptRules}" 
+                                         Value="True">
+                                    <Setter Property="BackgroundColor" Value="#E4C9C9"/>
+                                    <Setter Property="TextColor" Value="OrangeRed"/>
+                                </DataTrigger>
+                                <DataTrigger TargetType="Button" 
+                                         Binding="{Binding IsAcceptRules}" 
+                                         Value="False">
+                                    <Setter Property="BackgroundColor" Value="#E4C9C9"/>
+                                    <Setter Property="TextColor" Value="Gray"/>
+                                </DataTrigger>
+                            </Button.Triggers>
+                        </Button>
+
+                    </VerticalStackLayout>
+
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.PersonQRCodeReaderPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             xmlns:local="clr-namespace:Ballectics.App.ViewModels"
+             Title="PersonQRCodeReaderPage"
+             BackgroundColor="#E4C9C9">
+
+    <Grid>
+
+        <ScrollView VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    x:DataType="local:CourseDecreaseViewModel">
+            <StackLayout HorizontalOptions="Center"
+                         VerticalOptions="Center"
+                         Margin="0"
+                         Orientation="Vertical"
+                         x:Name="LayoutMain"
+                         Spacing="10">
+                <Label Text="Registrierung der Sitzungsteilnahme"
+                       FontFamily="robotoR"
+                       TextColor="Red"
+                       FontSize="20"
+                       Margin="10,20,10,5"/>
+                <Frame CornerRadius="30"
+                       HeightRequest="300"
+                       WidthRequest="300" 
+                       BackgroundColor="WhiteSmoke"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       x:Name="FrameQrCode">
+                    <zxing:CameraBarcodeReaderView
+                          x:Name="cameraBarcodeReaderView"
+                          BarcodesDetected="cameraBarcodeReaderView_BarcodesDetected" 
+                          IsDetecting="True"
+                          IsTorchOn="False"
+                          HorizontalOptions="Center"
+                          VerticalOptions="Center"
+                          HeightRequest="298"
+                          WidthRequest="298"/>
+                </Frame>
+
+                <Frame CornerRadius="30"
+                       BackgroundColor="WhiteSmoke"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       x:Name="FrameContent"
+                       Margin="10">
+                    <VerticalStackLayout Spacing="20">
+                        <Border Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Margin="0,10,0,0"
+                                Stroke="#E4C9C9"
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"
+                                WidthRequest="100"
+                                HeightRequest="100">
+                            <Border.StrokeShape>
+                                <Ellipse/>
+                            </Border.StrokeShape>
+                            <Image x:Name="imgProfile" 
+                                   WidthRequest="100"
+                                   HeightRequest="100"
+                                   Aspect="AspectFill"
+                                   Source="{Binding CourseShortInfo.ImageSource}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center">
+                            </Image>
+
+                        </Border>
+                        <Label Text="{Binding CourseShortInfo.Fullname}"
+                               TextColor="Gray"
+                               FontFamily="robotoR"
+                               FontSize="18"
+                               HorizontalOptions="Center"
+                               x:Name="txtFullName"/>
+                        <Label Text="{Binding CourseShortInfo.Rebase}"
+                               TextColor="Gray"
+                               FontFamily="robotoR"
+                               FontSize="18"
+                               HorizontalOptions="Center"
+                               x:Name="txtFebusCourse"/>
+
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+                            <Button Text="Speichern" 
+                                    Command="{Binding DecreaseCourseCommand}" 
+                                    BackgroundColor="SeaGreen" 
+                                    TextColor="WhiteSmoke"
+                                    HorizontalOptions="Fill" 
+                                    VerticalOptions="Center" />
+                            <Button Text="Abbrechen" 
+                                    Command="{Binding GoBackCommand}" 
+                                    BackgroundColor="IndianRed" 
+                                    TextColor="WhiteSmoke"
+                                    HorizontalOptions="Fill" 
+                                    VerticalOptions="Center" />
+                            <Button Text="Neu"
+                                    x:Name="btnNew"
+                                    Clicked="btnNew_Clicked" 
+                                    BackgroundColor="YellowGreen" 
+                                    TextColor="Black"
+                                    HorizontalOptions="Fill" 
+                                    VerticalOptions="Center" />
+                        </StackLayout>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+
+        <Grid   x:Name="LoaderOverlay"
+                BackgroundColor="#80000000" 
+                IsVisible="False"
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill">
+
+            <ActivityIndicator x:Name="Process"
+                               IsVisible="True"
+                               IsRunning="True"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Color="White"
+                               WidthRequest="60"
+                               HeightRequest="60"/>
+        </Grid>
+
+    </Grid>
+</ContentPage>

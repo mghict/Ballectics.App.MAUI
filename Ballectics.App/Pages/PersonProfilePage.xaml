@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.PersonProfilePage"
+             xmlns:helper="clr-namespace:Ballectics.App.Helper"
+             xmlns:local="clr-namespace:Ballectics.App.ViewModels"
+             xmlns:views="clr-namespace:Ballectics.App.Views.Profile"
+             Title="PersonProfilePage"
+             BackgroundColor="#E4C9C9">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <helper:PhoneNumberFormatter x:Key="PhoneNumberFormatter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <ScrollView >
+            <VerticalStackLayout>
+                <Border 
+                        BackgroundColor="White"
+                        Margin="10" 
+                        Stroke="#E4C9C9">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" StrokeThickness="3" />
+                    </Border.StrokeShape>
+
+                    <VerticalStackLayout Margin="20">
+                        <views:ProfileImage Margin="10"/>
+                        <VerticalStackLayout x:DataType="local:PersonProfileViewModel">
+                            <views:ProfileInformation Margin="10"/>
+
+                            <views:ProfileCourseInformation Margin="10"/>
+
+                            <Button Text="Sitzungen hinzufügen" 
+                                    Margin="10" 
+                                    BackgroundColor="GreenYellow"
+                                    TextColor="OrangeRed"
+                                    FontSize="16"
+                                    Command="{Binding AddCourseCommand}"/>
+                            <Button Text="Sitzungen anzeigen" 
+                                    Margin="10"
+                                    BackgroundColor="Black"
+                                    TextColor="White"
+                                    FontSize="16"
+                                    Command="{Binding ShowHistoryCommand}"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid   x:Name="LoaderOverlay"
+                BackgroundColor="#80000000" 
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsBusy}">
+
+            <ActivityIndicator x:Name="Process"
+                               IsVisible="True"
+                               IsRunning="True"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Color="White"
+                               WidthRequest="60"
+                               HeightRequest="60"/> 
+        </Grid>
+    </Grid>
+</ContentPage>

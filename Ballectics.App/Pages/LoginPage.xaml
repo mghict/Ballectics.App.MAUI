@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.LoginPage"
+                      Shell.TabBarIsVisible="False"
+         Shell.NavBarIsVisible="False"
+         >
+    <ScrollView Margin="0" Padding="0">
+        <Grid>
+            <Grid RowDefinitions="0.3*,0.7*" Margin="0" Padding="0">
+                <Image Aspect="AspectFill" Source="header_pic01.png" />
+                <Grid BackgroundColor="Pink" Opacity=".8" />
+                <Grid ColumnDefinitions="*,*">
+                    <Image Source="logo_balletics.png"
+               Aspect="AspectFit"
+               VerticalOptions="End"
+               HorizontalOptions="End"
+               Margin="0,0,0,15"
+               HeightRequest="80"
+               />
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0" Padding="0">
+                    <RoundRectangle Margin="-5,-15,-5,-2" 
+                        CornerRadius="30,30,0,0"
+                        Fill="White"/>
+                    <VerticalStackLayout Margin="30,20,30,0">
+                        <Label FontAttributes="Bold"
+                           FontFamily="latoB"
+                           FontSize="Medium"
+                           Text="Willkommen!"
+                           TextColor="#2D2D2D"
+                           />
+                        <Label 
+                           Margin="0,10,0,0"
+                           FontFamily="latoR"
+                           Text="Melden Sie sich an, um fortzufahren."
+                           TextColor="#A3A3A4"
+                            />
+                        <Label 
+                           FontSize="16"
+                           Text="{Binding ServiceError}"
+                           TextColor="Red"
+                           />
+                        <Grid ColumnDefinitions="0.2*,0.8*" Margin="0,30,0,0">
+                            <RoundRectangle BackgroundColor="#EDEBF6"
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                CornerRadius="10"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                />
+                            <!--<Image HorizontalOptions="Center">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="fa"
+                                         Glyph="&#xf0e0;"
+                                         Size="35"
+                                         Color="Pink"/>
+                                </Image.Source>
+                            </Image>-->
+                            <Label Text="&#xf0e0;"
+                                   FontFamily="fa"
+                                   FontSize="35"
+                                   TextColor="Pink"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1" 
+                               Placeholder="E-Mail"
+                               Text="{Binding UserName}"
+                               VerticalOptions="Center"
+                               x:Name="txtUserName"/>
+                        </Grid>
+                        <Label 
+                           FontSize="14"
+                           Text="{Binding UserNameError}"
+                           TextColor="Red"
+                           />
+                        <Grid ColumnDefinitions="0.2*,0.8*" Margin="0,30,0,0">
+                            <RoundRectangle BackgroundColor="#EDEBF6"
+                                        WidthRequest="50"
+                                        HeightRequest="50"
+                                        CornerRadius="10"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+                            <!--<Image HorizontalOptions="Center">
+                                <Image.Source>
+                                    <FontImageSource FontFamily="fa"
+                                         Glyph="&#xf084;"
+                                         Size="35"
+                                         Color="Pink"/>
+                                </Image.Source>
+                            </Image>-->
+                            <Label Text="&#xf084;"
+                                   FontFamily="fa"
+                                   FontSize="35"
+                                   TextColor="Pink"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                            <Entry Grid.Column="1" 
+                               Placeholder="Passwort"
+                               IsPassword="True"
+                               Text="{Binding Password}"
+                               VerticalOptions="Center"
+                               x:Name="txtPassword"/>
+
+                        </Grid>
+                        <Label 
+                           FontSize="14"
+                           Text="{Binding PasswordError}"
+                           TextColor="Red"
+                           />
+                        <Button Margin="0,40,0,0"
+                            HeightRequest="50"
+                            BackgroundColor="Pink"
+                            Text="Anmelden"
+                            TextColor="Black"
+                            Command="{Binding LoginUserCommand}"/>
+                    </VerticalStackLayout>
+                </Grid>
+
+
+            </Grid>
+            <Grid   x:Name="LoaderOverlay"
+                    BackgroundColor="#80000000" 
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    IsVisible="{Binding IsBusy}">
+
+                <ActivityIndicator x:Name="Process"
+               IsVisible="True"
+               IsRunning="True"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Color="White"
+               WidthRequest="60"
+               HeightRequest="60"/>
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

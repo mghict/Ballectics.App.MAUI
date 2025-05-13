@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.CourseAddPage"
+             Title="CourseAddPage"
+             BackgroundColor="#E4C9C9"
+             xmlns:converter="clr-namespace:Ballectics.App.Helper"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converter:LongToDoubleConverter x:Key="LongToDoubleConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <VerticalStackLayout>
+            <Border 
+                BackgroundColor="White"
+                Margin="10" 
+                Stroke="#E4C9C9">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20" 
+            StrokeThickness="3" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Margin="20">
+                    <Label Text="Sitzung hinzufügen" 
+                       FontFamily="beautyR" 
+                       FontSize="45"
+                       TextColor="Red"
+                       HorizontalTextAlignment="Center"
+                       />
+                    <BoxView WidthRequest="200" 
+                         HorizontalOptions="Center" 
+                         BackgroundColor="#E4C9C9"
+                         HeightRequest="1"
+                         Margin="10"/>
+                    <HorizontalStackLayout Margin="10">
+                        <Label Text="Zählen: "
+                           FontFamily="robotoR" 
+                           FontSize="18"
+                           TextColor="DarkGray"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"/>
+                        <Entry Text="{Binding CourseInfo.IncreaseCount, Mode=TwoWay}" 
+                           FontFamily="robotoR" 
+                           FontSize="18"
+                           TextColor="Black"
+                           Keyboard="Numeric" 
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           WidthRequest="100"/>
+                        <Button Text="+" 
+                            WidthRequest="20"
+                            Padding="0" 
+                            HeightRequest="5" 
+                            BackgroundColor="Green"
+                            Command="{Binding IncreaseCommand}"/>
+                        <Button Text="-" 
+                            WidthRequest="20" 
+                            Padding="0" 
+                            HeightRequest="5" 
+                            BackgroundColor="Red"
+                            Command="{Binding DecreaseCommand}"/>
+                    </HorizontalStackLayout>
+                    <StackLayout Orientation="Horizontal" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="Center" 
+                             Spacing="10"
+                             Margin="20">
+                        <Button Text="Speichern" 
+                            Command="{Binding SaveCommand}" 
+                            BackgroundColor="SeaGreen" 
+                            TextColor="WhiteSmoke"
+                            HorizontalOptions="Fill" 
+                            VerticalOptions="Center" />
+                        <Button Text="Abbrechen" 
+                            Command="{Binding CancelCommand}" 
+                            BackgroundColor="IndianRed" 
+                            TextColor="WhiteSmoke"
+                            HorizontalOptions="Fill" 
+                            VerticalOptions="Center" />
+
+                    </StackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+        <Grid   x:Name="LoaderOverlay"
+                BackgroundColor="#80000000" 
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsBusy}">
+
+            <ActivityIndicator x:Name="Process"
+               IsVisible="True"
+               IsRunning="True"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Color="White"
+               WidthRequest="60"
+               HeightRequest="60"/>
+        </Grid>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.Home.HomeContentFourth">
+    <VerticalStackLayout Margin="0,30,0,0">
+        <Label Text="Onlinewelt des Ballettstudios"
+           FontFamily="beautyR"
+           TextColor="#E4c9c9"
+           HorizontalTextAlignment="Center"
+           FontSize="40"
+        />
+        <Label Margin="0,-25,0,0"
+           Text="Hier investiert Europa in die               
+           Zukunft unseres Landes"
+           FontFamily="corVW"
+           FontSize="25"
+           FontAttributes="Bold"
+           TextColor="Black"
+           HorizontalTextAlignment="Center"
+           />
+        <Image Source="efre.jpg" Aspect="AspectFit" Margin="5,20,5,10"/>
+    </VerticalStackLayout>
+</ContentView>

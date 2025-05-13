@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.HomePage"
+             Title="HomePage"
+             Shell.TabBarIsVisible="True"
+             Shell.NavBarIsVisible="False"
+             xmlns:home="clr-namespace:Ballectics.App.Views.Home"
+             xmlns:controls="clr-namespace:Ballectics.App.Views"
+             >
+    <Grid Margin="0" RowDefinitions="70,*">
+        <VerticalStackLayout Grid.Row="0" Margin="0">
+            <controls:HeaderIcon/>
+        </VerticalStackLayout>
+
+        <ScrollView Margin="0" Grid.Row="1">
+            <VerticalStackLayout Margin="0,0,0,0">
+                <!--Home Video-->
+
+                <home:HomeVideo />
+                <!--HomeContentFirst-->
+                <home:HomeContentFirst/>
+                <!-- HomeContentSecond -->
+                <home:HomeContentSecond/>
+
+                <!-- HomeContentThird -->
+                <home:HomeContentThird/>
+
+                <!--HomeContentFourth -->
+                <home:HomeContentFourth/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

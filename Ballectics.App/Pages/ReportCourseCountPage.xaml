@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.ReportCourseCountPage"
+             xmlns:viewpage="clr-namespace:Ballectics.App.Views.Report"
+             xmlns:view="clr-namespace:Ballectics.App.ViewModels"
+             xmlns:model="clr-namespace:Ballectics.App.Models"
+             Title="ReportCourseCountPage"
+             BackgroundColor="#E4C9C9">
+
+    <Grid VerticalOptions="Fill" RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0">
+            <viewpage:CountSelector x:Name="countSelector" 
+                                CountSelected="countSelector_CountSelected" 
+                                Margin="10" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" 
+                    x:DataType="view:ReportCourseHistoryCountViewModel"
+                    ItemsSource="{Binding DataList}" 
+                    Margin="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:PersonModel">
+                    <Frame  BackgroundColor="White" 
+                        Margin="10" 
+                        Padding="0">
+                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*">
+                            <BoxView Grid.Row="0" BackgroundColor="#8E7DBE" Margin="0" />
+                            <HorizontalStackLayout HorizontalOptions="End" 
+                                               Grid.Row="0" Margin="10">
+                                <Label  Text="Verbleibende Sitzungen" 
+                                    FontSize="Small" 
+                                    Margin="5" 
+                                    Padding="0" 
+                                    FontFamily="robotoR" 
+                                    TextColor="WhiteSmoke" />
+                                <Border Stroke="{Binding TypeColor}"
+                                    StrokeThickness="2"
+                                    BackgroundColor="Transparent"
+                                    WidthRequest="30"
+                                    HeightRequest="30"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center">
+                                    <Border.StrokeShape>
+                                        <Ellipse />
+                                    </Border.StrokeShape>
+
+                                    <Label Text="{Binding Rebase}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       FontAttributes="Bold"
+                                       FontSize="14"
+                                       TextColor="White"/>
+                                </Border>
+                            </HorizontalStackLayout>
+                            <BoxView WidthRequest="20" 
+                                 HeightRequest="20"
+                                 CornerRadius="10"
+                                 HorizontalOptions="Start" 
+                                 BackgroundColor="{Binding TypeColor}"
+                                 Margin="10,5,10,0"
+                                 VerticalOptions="Center"
+                                 Grid.Row="0"/>
+                            <Grid Grid.Row="1" RowDefinitions="Auto,Auto" ColumnDefinitions="0.3*,*" Margin="10">
+                                <Border Stroke="#E4C9C9"
+                                    StrokeThickness="2"
+                                    BackgroundColor="Transparent"
+                                    WidthRequest="60"
+                                    HeightRequest="60"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Margin="5"
+                                    Grid.Row="0"
+                                    Grid.Column="0"  
+                                    Grid.RowSpan="2">
+                                    <Border.StrokeShape>
+                                        <Ellipse />
+                                    </Border.StrokeShape>
+
+                                    <Image x:Name="imgProfile" 
+                                           WidthRequest="58"
+                                           HeightRequest="58"
+                                           Aspect="AspectFill"
+                                           Source="{Binding ImageSource}"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center"/>
+
+                                </Border>
+                                <Label Grid.Column="1"  Grid.Row="0"
+                                   Text="{Binding FirstName}" 
+                                   FontSize="Medium" 
+                                   FontAttributes="Bold" 
+                                   FontFamily="robotoR" 
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center" Margin="0"/>
+                                <Label Grid.Column="1"  Grid.Row="1"
+                                   Text="{Binding LastName}" 
+                                   FontSize="Medium" 
+                                   FontAttributes="Bold" 
+                                   FontFamily="robotoR" 
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center" Margin="0"/>
+                            </Grid>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ActivityIndicator x:Name="Process"
+                    Grid.Row="1"
+                    IsVisible="{Binding IsBusy}"
+                    IsRunning="{Binding IsBusy}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Color="White"
+                    WidthRequest="60"
+                    HeightRequest="60"/>
+    </Grid>
+</ContentPage>

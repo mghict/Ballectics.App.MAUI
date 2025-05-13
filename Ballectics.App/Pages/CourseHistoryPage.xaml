@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.CourseHistoryPage"
+             Title="CourseHistoryPage"
+             xmlns:local="clr-namespace:Ballectics.App.ViewModels"
+             xmlns:model="clr-namespace:Ballectics.App.Models"
+             BackgroundColor="#E4C9C9"
+             >
+    <Frame BackgroundColor="White" CornerRadius="10" Margin="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label  Grid.Row="0" Text="Sitzungen anzeigen" 
+                FontSize="45" 
+                FontFamily="beautyR" 
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                TextColor="Red"
+                x:Name="txtTitle"
+                Margin="10"/>
+            <BoxView WidthRequest="200" 
+                 HorizontalOptions="Center" 
+                 BackgroundColor="#E4C9C9"
+                 HeightRequest="1"
+                 Margin="10"
+                 Grid.Row="1"/>
+            <RefreshView x:DataType="local:CourseHistoryViewModel"
+                     Command="{Binding LoadDataCommand}"
+                     IsRefreshing="{Binding IsBusy}"
+                     Grid.Row="2">
+                <CollectionView ItemsSource="{Binding CourseHistoryItems}" 
+                            Margin="0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:CourseHistoryModel">
+                            <Frame Margin="10" 
+                               Padding="0" 
+                               BackgroundColor="LightGray" 
+                               Opacity="0.9" 
+                               CornerRadius="10">
+                                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*" Padding="0">
+                                    <BoxView Grid.Row="0" BackgroundColor="{Binding TypeColor}" Margin="0" />
+                                    <HorizontalStackLayout HorizontalOptions="End" 
+                                                       VerticalOptions="Center" 
+                                                       Margin="10,5,10,5"
+                                                       Grid.Row="0">
+                                        <Label Text="&#xf073; "
+                                           FontFamily="fa"
+                                           TextColor="DarkGray"
+                                           FontSize="16"
+                                           VerticalOptions="Center"/>
+                                        <Label Text="{Binding CreateDate, StringFormat='{}{0:dd.MM.yyyy HH\\:mm}'}" 
+                                           FontSize="16" 
+                                           FontFamily="robotoR"
+                                           TextColor="{Binding TypeTextColor}"
+                                           />
+                                    </HorizontalStackLayout>
+
+                                    <Label Text="{Binding Description}" 
+                                       FontSize="18" 
+                                       FontFamily="robotoR"
+                                       TextColor="Black" 
+                                       VerticalTextAlignment="Center"
+                                       HorizontalTextAlignment="Center"
+                                       Margin="10"
+                                       Grid.Row="1"/>
+                                </Grid>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Grid>
+    </Frame>
+</ContentPage>

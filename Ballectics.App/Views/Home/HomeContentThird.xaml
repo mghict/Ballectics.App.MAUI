@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.Home.HomeContentThird">
+    <Border StrokeShape="RoundRectangle 20,20,20,20"
+    Margin="10,40,10,10"
+    BackgroundColor="#E4C9C9">
+        <VerticalStackLayout>
+            <Image HorizontalOptions="Center" Margin="0,30,0,10">
+                <Image.Source>
+                    <FontImageSource FontFamily="fa"
+                             Glyph="&#xf559;"
+                             Size="35"
+                             Color="#bc9ca7"/>
+                </Image.Source>
+            </Image>
+            <Label Text="BALLETICS.BY.NINA"
+            FontFamily="corVW"
+            FontAttributes="Bold" FontSize="24"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+           Margin="10"
+            />
+            <Label Text="Mit Balletics.By.Nina habe ich ein gesundheitsbewusstes Konzept entwickelt, welches klassisches Ballett mit modernen Beats, athletisches Krafttraining sowie Dehnungselemente aus Pilates und Yoga ideal verbindet."
+            FontFamily="homR"
+            FontSize="18"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+            Margin="10"
+               LineHeight="1.3"
+            />
+            <Image HorizontalOptions="Center" Margin="0,40,0,10">
+                <Image.Source>
+                    <FontImageSource FontFamily="fa"
+                             Glyph="&#xf004;"
+                             Size="35"
+                             Color="#bc9ca7"/>
+                </Image.Source>
+            </Image>
+            <Label Text="DAS STUDIO"
+            FontFamily="corVW"
+            FontAttributes="Bold" FontSize="24"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+           Margin="10"
+               LineHeight="1.3"
+            />
+            <Label Text="Unser neues ‚grünes‘ Tanzstudio verfügt über einen gelenkschonenden Echtholz-Schwing-Tanzboden und lässt keine Wünsche an ein gesundes, professionelles Training offen."
+            FontFamily="homR"
+            FontSize="18"
+               LineHeight="1.3"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+            Margin="10"
+               
+            />
+
+            <Image HorizontalOptions="Center" Margin="0,40,0,10">
+                <Image.Source>
+                    <FontImageSource FontFamily="fa"
+                             Glyph="&#xf19d;"
+                             Size="35"
+                             Color="#bc9ca7"/>
+                </Image.Source>
+            </Image>
+            <Label Text="EXPERTISE"
+            FontFamily="corVW"
+            FontAttributes="Bold" FontSize="24"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+           Margin="10"
+            />
+            <Label Text="Nina Lettow-Lehmann wurde an der Staatlichen Ballettschule Berlin in professionellem Ballett ausgebildet, unterrichtet seit über 10 Jahren in Magdeburg Ballett und ist vor allem eins – Tanzlehrerin mit Herz."
+            FontFamily="homR"
+            FontSize="18"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            TextColor="Black"
+            Margin="10,10,10,30"
+            />
+
+
+        </VerticalStackLayout>
+
+
+    </Border>
+</ContentView>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Pages.ReportCourseByDateTimePage"
+             xmlns:view="clr-namespace:Ballectics.App.ViewModels"
+             xmlns:model="clr-namespace:Ballectics.App.Models"
+             xmlns:controls="clr-namespace:Ballectics.App.Views"
+             xmlns:controlls="clr-namespace:Ballectics.App.Views.Report"
+             Title="ReportCourseByDateTimePage"
+             BackgroundColor="#E4C9C9">
+
+    <Grid VerticalOptions="Fill" x:DataType="view:ReportCourseHistortDateTimeViewModel" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <controlls:DateTimeSelector x:Name="MyDateTimeSelector" Grid.Row="0"
+                       DateTimeSelected="MyDateTimeSelector_DateTimeSelected" Margin="10" />
+        <CollectionView  Margin="0" ItemsSource="{Binding DataList}" Grid.Row="1" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CourseHistoryWithImageModel" >
+                    <Frame  BackgroundColor="White" 
+                            Margin="10" 
+                            Padding="0">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*"
+                              BackgroundColor="Transparent" Margin="0">
+                            <HorizontalStackLayout Margin="10,5,10,0" 
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="End">
+                                <Label Text="&#xf073; "
+                                   FontFamily="fa"
+                                   TextColor="DarkGray"
+                                   FontSize="16"
+                                   VerticalOptions="Center"/>
+                                <Label  Text="{Binding CreateDate, StringFormat='{}{0:dd.MM.yyyy HH\\:mm}'}" 
+                                    FontSize="16" 
+                                    FontFamily="robotoR"
+                                    TextColor="DarkGray"
+                                    Grid.Row="0"
+                                    />
+                            </HorizontalStackLayout>
+
+                            <BoxView WidthRequest="20" 
+                                 HeightRequest="20"
+                                 CornerRadius="10"
+                                 HorizontalOptions="Start" 
+                                 BackgroundColor="{Binding TypeColor}"
+                                 Margin="10,5,10,0"
+                                 VerticalOptions="Center"
+                                 Grid.Row="0"/>
+                            <BoxView WidthRequest="800" 
+                                     HorizontalOptions="End" 
+                                     BackgroundColor="Gray"
+                                     HeightRequest="1"
+                                     Margin="0,10,0,10"
+                                     Grid.Row="1"/>
+
+                            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions=".2*,.8*" Grid.Row="2">
+                                <controlls:ImageViewModel Grid.RowSpan="2" Grid.Row="0" Grid.Column="0"/>
+                                <Label Grid.Column="1"  Grid.Row="0"
+                                       Text="{Binding FirstName}" 
+                                       FontSize="Medium" 
+                                       FontAttributes="Bold" 
+                                       FontFamily="robotoR" 
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center" Margin="5"/>
+                                <Label Grid.Column="1"  Grid.Row="1"
+                                       Text="{Binding LastName}" 
+                                       FontSize="Medium" 
+                                       FontAttributes="Bold" 
+                                       FontFamily="robotoR" 
+                                       HorizontalTextAlignment="Start"
+                                       VerticalTextAlignment="Center" Margin="5"/>
+                            </Grid>
+
+
+                            <BoxView Grid.Row="3" BackgroundColor="{Binding TypeColor}" Margin="0" />
+                            <Label Grid.Row="3"  
+                                   Margin="10"
+                                   Text="{Binding Description}" 
+                                   FontSize="Medium" 
+                                   FontAttributes="Bold" 
+                                   FontFamily="robotoR" 
+                                   TextColor="{Binding TypeTextColor}"
+                                   HorizontalTextAlignment="Center"/>
+                        </Grid>
+
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <ActivityIndicator x:Name="Process"
+                            Grid.Row="1"
+                            IsVisible="{Binding IsBusy}"
+                            IsRunning="{Binding IsBusy}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Color="White"
+                            WidthRequest="60"
+                            HeightRequest="60"/>
+
+    </Grid>
+</ContentPage>

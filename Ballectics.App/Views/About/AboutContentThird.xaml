@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ballectics.App.Views.About.AboutContentThird">
+    <Grid BackgroundColor="Black"
+          Margin="0,-15" 
+          RowDefinitions="280,240,30">
+                <Border Stroke="DarkGray" Grid.Row="0"
+                    StrokeThickness="3"
+                    Padding="2"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Margin="0,50,0,0">
+                    <Image Source="aboutpageimage03.png" Grid.Row="0"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Aspect="AspectFit" 
+                    />
+                </Border>
+
+                <Border Stroke="DarkGray" Grid.Row="1"
+                    StrokeThickness="3"
+                    Padding="2"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Margin="40,-20,0,0"
+                    >
+                    <Image Source="aboutpageimage02.png" Grid.Row="0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Aspect="AspectFit" 
+                           />
+                </Border>
+
+    </Grid>
+</ContentView>
