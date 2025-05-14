@@ -2,13 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ballectics.App.Pages.LoginPage"
-                      Shell.TabBarIsVisible="False"
-         Shell.NavBarIsVisible="False"
-         >
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui" >
+
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#E4C9C9"/>
+    </Page.Behaviors>
+
+
     <ScrollView Margin="0" Padding="0">
-        <Grid>
-            <Grid RowDefinitions="0.3*,0.7*" Margin="0" Padding="0">
-                <Image Aspect="AspectFill" Source="header_pic01.png" />
+        <Grid >
+            <Grid RowDefinitions="0.3*,0.7*" Margin="0" Padding="0" >
+                <Image Aspect="AspectFit" Source="header_pic01.png" />
                 <Grid BackgroundColor="Pink" Opacity=".8" />
                 <Grid ColumnDefinitions="*,*">
                     <Image Source="logo_balletics.png"
@@ -25,6 +32,7 @@
                         CornerRadius="30,30,0,0"
                         Fill="White"/>
                     <VerticalStackLayout Margin="30,20,30,0">
+
                         <Label FontAttributes="Bold"
                            FontFamily="latoB"
                            FontSize="Medium"
@@ -50,14 +58,6 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 />
-                            <!--<Image HorizontalOptions="Center">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fa"
-                                         Glyph="&#xf0e0;"
-                                         Size="35"
-                                         Color="Pink"/>
-                                </Image.Source>
-                            </Image>-->
                             <Label Text="&#xf0e0;"
                                    FontFamily="fa"
                                    FontSize="35"
@@ -82,14 +82,6 @@
                                         CornerRadius="10"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"/>
-                            <!--<Image HorizontalOptions="Center">
-                                <Image.Source>
-                                    <FontImageSource FontFamily="fa"
-                                         Glyph="&#xf084;"
-                                         Size="35"
-                                         Color="Pink"/>
-                                </Image.Source>
-                            </Image>-->
                             <Label Text="&#xf084;"
                                    FontFamily="fa"
                                    FontSize="35"
@@ -109,16 +101,15 @@
                            Text="{Binding PasswordError}"
                            TextColor="Red"
                            />
-                        <Button Margin="0,40,0,0"
+                        <Button Margin="0,40,0,20"
                             HeightRequest="50"
                             BackgroundColor="Pink"
                             Text="Anmelden"
                             TextColor="Black"
                             Command="{Binding LoginUserCommand}"/>
+
                     </VerticalStackLayout>
                 </Grid>
-
-
             </Grid>
             <Grid   x:Name="LoaderOverlay"
                     BackgroundColor="#80000000" 

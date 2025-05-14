@@ -8,7 +8,7 @@
              BackgroundColor="#E4C9C9">
     <VerticalStackLayout VerticalOptions="Center"
                      HorizontalOptions="Center"
-                     x:DataType="local:PersonBaseViewModel">
+                     x:DataType="local:PersonBaseViewModel" MaximumWidthRequest="800">
         <Frame CornerRadius="30"
                HeightRequest="300"
                WidthRequest="300" 

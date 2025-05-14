@@ -5,17 +5,18 @@
     <VerticalStackLayout >
         <Image Source="aboutpageimage01.png"
             Aspect="AspectFill"
-            HeightRequest="500" 
+            MaximumHeightRequest="500" 
+            MaximumWidthRequest="800"
             Margin="0,20,10,0"/>
 
         <Label Text="Ballett ist meine Passion. Diese zu teilen, betrachte ich als persönliches Glück."
-           FontSize="22"
-           VerticalTextAlignment="Start"
-           HorizontalTextAlignment="Start"
-           LineBreakMode="WordWrap"
-           FontAutoScalingEnabled="True"
-           FontFamily="latoB"
-           Margin="35,0,25,5"
+               FontSize="22"
+               VerticalTextAlignment="Start"
+               HorizontalTextAlignment="Start"
+               LineBreakMode="WordWrap"
+               FontAutoScalingEnabled="True"
+               FontFamily="latoB"
+               Margin="35,0,25,5"
            />
         <Label Text="mit 8 Jahren zum Ballett. Einmal vom Ballett-Fieber gepackt, wurde mir gestattet gleich zu Beginn zwei Ausbildungsjahre zu überspringen und nach zwei weiteren Jahren an die Staatliche Ballettschule Berlin zu wechseln, um Profitänzerin zu werden."
            FontSize="18"

@@ -19,9 +19,6 @@ public partial class AppShell : Shell
         RegisterRout(nameof(NoInternetPage), typeof(NoInternetPage));
 
         this.tabBar.Items.Clear();
-
-        
-
         AddTab("Home", "home.png", typeof(HomePage), nameof(HomePage));
         AddTab("Kontakt", "contact.png", typeof(ContactPage), nameof(ContactPage));
         AddTab("About", "about.png", typeof(AboutPage), nameof(AboutPage));

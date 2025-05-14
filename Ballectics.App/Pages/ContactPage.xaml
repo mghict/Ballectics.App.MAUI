@@ -6,8 +6,11 @@
              Shell.TabBarIsVisible="True"
              Shell.NavBarIsVisible="False"
              xmlns:cntl="clr-namespace:Ballectics.App.Views"
-             xmlns:local="clr-namespace:Ballectics.App.ViewModels">
-    <Grid Margin="0" RowDefinitions="70,*" x:DataType="local:EmailViewModel">
+             xmlns:local="clr-namespace:Ballectics.App.ViewModels"
+             BackgroundColor="#E4C9C9">
+    
+    <Grid Margin="0" RowDefinitions="70,*" x:DataType="local:EmailViewModel" MaximumWidthRequest="800"
+          BackgroundColor="White">
         <VerticalStackLayout Grid.Row="0" Margin="0">
             <cntl:HeaderIcon/>
         </VerticalStackLayout>

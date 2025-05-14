@@ -9,7 +9,7 @@
              Title="ReportCourseByDateTimePage"
              BackgroundColor="#E4C9C9">
 
-    <Grid VerticalOptions="Fill" x:DataType="view:ReportCourseHistortDateTimeViewModel" >
+    <Grid VerticalOptions="Fill" x:DataType="view:ReportCourseHistortDateTimeViewModel" MaximumWidthRequest="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />

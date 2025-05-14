@@ -35,6 +35,8 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Diese App erfordert eine Galerie zum Auswählen von Fotos.</string>
 
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	
 </dict>
 </plist>

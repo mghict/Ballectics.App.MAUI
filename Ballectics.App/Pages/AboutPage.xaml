@@ -6,8 +6,9 @@
              xmlns:headerControl="clr-namespace:Ballectics.App.Views"
              Shell.TabBarIsVisible="True"
              Shell.NavBarIsVisible="False"
-             Title="AboutPage">
-    <Grid Margin="0" RowDefinitions="70,*">
+             Title="AboutPage"
+             BackgroundColor="LightGray">
+    <Grid Margin="0" RowDefinitions="70,*" BackgroundColor="White" MaximumWidthRequest="800">
         <VerticalStackLayout Grid.Row="0" Margin="0">
             <!-- Header Icon -->
             <headerControl:HeaderIcon/>

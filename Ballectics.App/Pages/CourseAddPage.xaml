@@ -12,7 +12,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid MaximumWidthRequest="800">
         <VerticalStackLayout>
             <Border 
                 BackgroundColor="White"
@@ -34,7 +34,7 @@
                          BackgroundColor="#E4C9C9"
                          HeightRequest="1"
                          Margin="10"/>
-                    <HorizontalStackLayout Margin="10">
+                    <HorizontalStackLayout Margin="10" HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="Zählen: "
                            FontFamily="robotoR" 
                            FontSize="18"
@@ -52,17 +52,19 @@
                            VerticalOptions="Center"
                            WidthRequest="100"/>
                         <Button Text="+" 
-                            WidthRequest="20"
-                            Padding="0" 
-                            HeightRequest="5" 
+                            WidthRequest="40"
+                            Padding="5" 
+                            HeightRequest="40" 
                             BackgroundColor="Green"
-                            Command="{Binding IncreaseCommand}"/>
+                            Command="{Binding IncreaseCommand}"
+                            Margin="5"/>
                         <Button Text="-" 
-                            WidthRequest="20" 
-                            Padding="0" 
-                            HeightRequest="5" 
+                            WidthRequest="40" 
+                            Padding="5" 
+                            HeightRequest="40" 
                             BackgroundColor="Red"
-                            Command="{Binding DecreaseCommand}"/>
+                            Command="{Binding DecreaseCommand}"
+                            Margin="0,5"/>
                     </HorizontalStackLayout>
                     <StackLayout Orientation="Horizontal" 
                              VerticalOptions="Center" 

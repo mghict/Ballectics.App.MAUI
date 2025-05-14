@@ -7,8 +7,11 @@
     Shell.FlyoutBehavior="Disabled"
     Shell.TabBarIsVisible="False"
     FlyoutBackgroundColor="#E6D2DC"
-    Title="Ballectics.App">
+    Title="Ballectics.App"
+    
+    >
 
+    
     <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"

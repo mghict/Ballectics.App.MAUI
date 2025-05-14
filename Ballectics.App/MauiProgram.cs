@@ -15,6 +15,7 @@ namespace Ballectics.App
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .UseBarcodeReader()
                 .UseMauiCommunityToolkitMediaElement()
                 .ConfigureFonts(fonts =>

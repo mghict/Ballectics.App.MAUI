@@ -22,10 +22,11 @@
 
             <HorizontalStackLayout VerticalOptions="Center" Margin="10,5,0,0">
                 <Label Text="&#xf017; "
-                   FontFamily="fa"
-                   TextColor="Black"
-                   FontSize="16"
-                   VerticalOptions="Center"/>
+                       FontFamily="fa"
+                       TextColor="Black"
+                       FontSize="16"
+                       VerticalOptions="Center"
+                       Margin="10,0,10,0"/>
                 <Label Text="Stunde:" 
                    FontSize="16" 
                    FontFamily="robotoR"
@@ -33,11 +34,22 @@
             </HorizontalStackLayout>
             <Picker x:Name="HourPicker" Margin="10,0,10,0" />
 
-            <Button Text="Daten anzeigen"
-                Clicked="OnSubmitClicked"
-                BackgroundColor="DarkBlue"
-                TextColor="White"
-                Margin="5"/>
+            <Grid VerticalOptions="Fill" 
+                  HorizontalOptions="Fill"
+                  RowDefinitions="Auto"
+                  ColumnDefinitions="0.7*,0.3*"
+                  Margin="5">
+                <Button Text="Daten anzeigen"
+                        Clicked="OnSubmitClicked"
+                        BackgroundColor="DarkBlue"
+                        TextColor="White"
+                        Margin="5"/>
+                <Button Text="Abbrechen" Grid.Column="1"
+                        Clicked="OnCancelClicked"
+                        BackgroundColor="IndianRed"
+                        TextColor="White"
+                        Margin="5"/>
+            </Grid>
 
         </VerticalStackLayout>
     </Frame>

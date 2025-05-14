@@ -37,5 +37,9 @@
                     x:Name="btnYouTube"
                     Clicked="btnYouTube_Clicked"/>
         </HorizontalStackLayout>
+        <BoxView VerticalOptions="End" HorizontalOptions="End"
+                 BackgroundColor="#E4C9C9"
+                 WidthRequest="800"
+                 HeightRequest="1"/>
     </Grid>
 </ContentView>

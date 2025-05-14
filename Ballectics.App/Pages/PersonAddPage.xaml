@@ -9,27 +9,26 @@
         <BackButtonBehavior IsVisible="True" Command="{Binding GoBackCommand}" />
     </Shell.BackButtonBehavior>-->
     
-    <Grid>
+    <Grid MaximumWidthRequest="800">
         <Border 
-    Margin="10" 
-    Stroke="#E4C9C9"
-    BackgroundColor="White">
+            Margin="10" 
+            Stroke="#E4C9C9"
+            BackgroundColor="White">
             <Border.StrokeShape>
-                <RoundRectangle CornerRadius="20" 
-                        StrokeThickness="3" />
+                <RoundRectangle CornerRadius="20" StrokeThickness="3" />
             </Border.StrokeShape>
             <ScrollView>
                 <StackLayout Spacing="10" Padding="15" Margin="10">
                     <Label Text="Nue Kunde" FontSize="40" 
-                   FontAttributes="Bold" 
-                   FontFamily="beautyR" 
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center"
-                   x:Name="txtTitle"/>
+                           FontAttributes="Bold" 
+                           FontFamily="beautyR" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           x:Name="txtTitle"/>
                     <BoxView WidthRequest="200" 
-                     HorizontalOptions="Center" 
-                     BackgroundColor="#E4C9C9"
-                     HeightRequest="1"/>
+                             HorizontalOptions="Center" 
+                             BackgroundColor="#E4C9C9"
+                             HeightRequest="1"/>    
                     <VerticalStackLayout Padding="0" Margin="0">
                         <Label Text="Vorname :" FontSize="18" IsEnabled="False" FontFamily="robotoR" />
                         <Entry Text="{Binding PersonInfo.FirstName, Mode=TwoWay}" FontSize="18" FontFamily="robotoR" />
@@ -50,36 +49,36 @@
 
                     <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
                         <Button Text="Speichern" 
-                    Command="{Binding SavePersonCommand}" 
-                    BackgroundColor="SeaGreen" 
-                    TextColor="WhiteSmoke"
-                    HorizontalOptions="Fill" 
-                    VerticalOptions="Center" />
+                                Command="{Binding SavePersonCommand}" 
+                                BackgroundColor="SeaGreen" 
+                                TextColor="WhiteSmoke"
+                                HorizontalOptions="Fill" 
+                                VerticalOptions="Center" />
                         <Button Text="Abbrechen" 
-                    Command="{Binding CancelPersonCommand}" 
-                    BackgroundColor="IndianRed" 
-                    TextColor="WhiteSmoke"
-                    HorizontalOptions="Fill" 
-                    VerticalOptions="Center" />
+                                Command="{Binding CancelPersonCommand}" 
+                                BackgroundColor="IndianRed" 
+                                TextColor="WhiteSmoke"
+                                HorizontalOptions="Fill" 
+                                VerticalOptions="Center" />
 
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
         </Border>
         <Grid   x:Name="LoaderOverlay"
-        BackgroundColor="#80000000" 
-        VerticalOptions="Fill"
-        HorizontalOptions="Fill"
-        IsVisible="{Binding IsBusy}">
+                BackgroundColor="#80000000" 
+                VerticalOptions="Fill"
+                HorizontalOptions="Fill"
+                IsVisible="{Binding IsBusy}">
 
             <ActivityIndicator x:Name="Process"
-       IsVisible="True"
-       IsRunning="True"
-       HorizontalOptions="Center"
-       VerticalOptions="Center"
-       Color="White"
-       WidthRequest="60"
-       HeightRequest="60"/>
+                               IsVisible="True"
+                               IsRunning="True"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               Color="White"
+                               WidthRequest="60"
+                               HeightRequest="60"/>
         </Grid>
     </Grid>
 </ContentPage>

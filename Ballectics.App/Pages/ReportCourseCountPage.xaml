@@ -8,7 +8,7 @@
              Title="ReportCourseCountPage"
              BackgroundColor="#E4C9C9">
 
-    <Grid VerticalOptions="Fill" RowDefinitions="Auto,*">
+    <Grid VerticalOptions="Fill" RowDefinitions="Auto,*" MaximumWidthRequest="800">
         <VerticalStackLayout Grid.Row="0">
             <viewpage:CountSelector x:Name="countSelector" 
                                 CountSelected="countSelector_CountSelected" 

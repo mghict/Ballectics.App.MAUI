@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid MaximumWidthRequest="800">
         <Grid IsVisible="{Binding IsNotBusy}">
             <ScrollView >
                 <VerticalStackLayout >

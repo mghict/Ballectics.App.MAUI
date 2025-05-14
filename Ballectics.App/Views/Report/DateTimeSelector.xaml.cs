@@ -32,4 +32,9 @@ public partial class DateTimeSelector : ContentView
 
         DateTimeSelected?.Invoke(this, finalDateTime);
     }
+
+    private async void OnCancelClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
+    }
 }

@@ -24,4 +24,9 @@ public partial class CountSelector : ContentView
         var finalDateTime = Convert.ToInt32(CountPicker.SelectedItem);
         CountSelected?.Invoke(this, finalDateTime);
     }
+
+    private async void OnCancelClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopModalAsync();
+    }
 }

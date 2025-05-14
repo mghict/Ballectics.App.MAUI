@@ -7,8 +7,16 @@
              Shell.NavBarIsVisible="False"
              xmlns:home="clr-namespace:Ballectics.App.Views.Home"
              xmlns:controls="clr-namespace:Ballectics.App.Views"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             BackgroundColor="#E4C9C9"
              >
-    <Grid Margin="0" RowDefinitions="70,*">
+
+    <Page.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#E4C9C9"/>
+    </Page.Behaviors>
+    
+    <Grid Margin="0" RowDefinitions="70,*" MaximumWidthRequest="800"
+          BackgroundColor="White">
         <VerticalStackLayout Grid.Row="0" Margin="0">
             <controls:HeaderIcon/>
         </VerticalStackLayout>

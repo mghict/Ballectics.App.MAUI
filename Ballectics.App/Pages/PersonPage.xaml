@@ -7,14 +7,15 @@
              xmlns:helper="clr-namespace:Ballectics.App.Helper"
              Title="Kunden"
              Shell.NavBarIsVisible="True"
-             Shell.TabBarIsVisible="True">
+             Shell.TabBarIsVisible="True"
+             BackgroundColor="#E4C9C9">
     
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsVisible="False" />
     </Shell.BackButtonBehavior>
 
 
-    <ContentPage.ToolbarItems >
+    <ContentPage.ToolbarItems>
         <ToolbarItem  Command="{Binding AddPersonCommand}" IconImageSource="person_add.png" Text="Hinzüfug" />
         <ToolbarItem  Command="{Binding ScanQrCodeCommand}" IconImageSource="qrcode.png"  />
         <ToolbarItem  Command="{Binding GotoReportHistoryCommand}" IconImageSource="report_history01.png"  />
@@ -27,52 +28,53 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ContentPage.Background>
+    <!--<ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Offset="0.1" Color="#EDEBEC"/>
             <GradientStop Offset="0.5" Color="#FFFFFF"/>
             <GradientStop Offset="1.0" Color="#EDEBEC"/>
         </LinearGradientBrush>
-    </ContentPage.Background>
+    </ContentPage.Background>-->
 
 
-    <Grid x:DataType="local:PersonViewModel">
+    <Grid x:DataType="local:PersonViewModel" MaximumWidthRequest="800">
         <Image Source="aboutpageimage02.png"
                BackgroundColor="Transparent"
                Aspect="AspectFill"
-               Opacity="0.9"
+               Opacity="0.85"
                IsVisible="True"
            />
-        <Grid Padding="0">
+        <Grid Padding="0"  >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <SearchBar Placeholder="Suchen" Grid.Row="0"
-               BackgroundColor="Gray"
-               TextColor="White"
-               PlaceholderColor="LightBlue"
-               Text="{Binding SearchText,Mode=TwoWay}"
-               SearchCommand="{Binding SearchCommand}"
-               x:Name="searchBut"
-               TextChanged="searchBut_TextChanged"
-               />
+                       BackgroundColor="Gray"
+                       TextColor="White"
+                       Margin="0"
+                       PlaceholderColor="LightBlue"
+                       Text="{Binding SearchText,Mode=TwoWay}"
+                       SearchCommand="{Binding SearchCommand}"
+                       x:Name="searchBut"
+                       TextChanged="searchBut_TextChanged"
+                       />
 
-            <RefreshView Grid.Row="1"
-                    
-                    Command="{Binding LoadDataCommand}"
-                    IsRefreshing="{Binding IsBusy}"
-                    >
+            <RefreshView Grid.Row="1" 
+                         Margin="0"
+                         Command="{Binding LoadDataCommand}"
+                         IsRefreshing="{Binding IsBusy}">
 
-                <CollectionView ItemsSource="{Binding PersonList}" Margin="0" >
+                <CollectionView ItemsSource="{Binding PersonList}" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:PersonModel">
-                            <Frame Margin="10" 
-                           Padding="0" 
-                           BackgroundColor="LightGray" 
-                           Opacity="0.95" 
-                           CornerRadius="20">
+                            <Grid Margin="10" Padding="0">
+                            <Frame Margin="0" 
+                                   Padding="0" 
+                                   BackgroundColor="LightGray" 
+                                   Opacity="0.95" 
+                                   CornerRadius="20">
                                 <SwipeView Padding="0" >
                                     <SwipeView.RightItems>
                                         <SwipeItems SwipeBehaviorOnInvoked="Close" >
@@ -81,19 +83,19 @@
                                                     CommandParameter="{Binding .}" >
                                                 <VerticalStackLayout>
                                                     <Label FontFamily="fa" 
-                                                   Text="&#xf1f8;" 
-                                                   TextColor="#DF5252" 
-                                                   FontSize="30" 
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"
-                                                   Margin="20" />
+                                                           Text="&#xf1f8;" 
+                                                           TextColor="#DF5252" 
+                                                           FontSize="30" 
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center"
+                                                           Margin="20" />
                                                     <Label FontFamily="robotoR" 
-                                                   Text="Löschen" 
-                                                   TextColor="#DF5252" 
-                                                   FontSize="14" 
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"
-                                                   Margin="5" />
+                                                           Text="Löschen" 
+                                                           TextColor="#DF5252" 
+                                                           FontSize="14" 
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center"
+                                                           Margin="5" />
                                                 </VerticalStackLayout>
                                             </SwipeItemView>
                                             <SwipeItemView Command="{Binding Source={RelativeSource AncestorType={x:Type local:PersonViewModel}},
@@ -101,19 +103,19 @@
                                                     CommandParameter="{Binding .}" >
                                                 <VerticalStackLayout>
                                                     <Label  FontFamily="fa" 
-                                                Text="&#xf044;" 
-                                                TextColor="#1D62F5" 
-                                                FontSize="30" 
-                                                VerticalOptions="Center"
-                                                HorizontalOptions="Center"
-                                                Margin="20" />
+                                                            Text="&#xf044;" 
+                                                            TextColor="#1D62F5" 
+                                                            FontSize="30" 
+                                                            VerticalOptions="Center"
+                                                            HorizontalOptions="Center"
+                                                            Margin="20" />
                                                     <Label  FontFamily="robotoR" 
-                                                Text="Bearbeiten" 
-                                                TextColor="#1D62F5" 
-                                                FontSize="14" 
-                                                VerticalOptions="Center"
-                                                HorizontalOptions="Center"
-                                                Margin="5" />
+                                                            Text="Bearbeiten" 
+                                                            TextColor="#1D62F5" 
+                                                            FontSize="14" 
+                                                            VerticalOptions="Center"
+                                                            HorizontalOptions="Center"
+                                                            Margin="5" />       
                                                 </VerticalStackLayout>
                                             </SwipeItemView>
                                             <SwipeItemView Command="{Binding Source={RelativeSource AncestorType={x:Type local:PersonViewModel}},
@@ -122,19 +124,19 @@
                                                        Padding="0">
                                                 <VerticalStackLayout>
                                                     <Label FontFamily="fa" 
-                                                       Text="&#xf2bb;" 
-                                                       TextColor="#045D2B" 
-                                                       FontSize="30"
-                                                       VerticalOptions="Center"
-                                                       HorizontalOptions="Center"
-                                                       Margin="20" />
+                                                           Text="&#xf2bb;" 
+                                                           TextColor="#045D2B" 
+                                                           FontSize="30"
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center"
+                                                           Margin="20" />
                                                     <Label FontFamily="robotoR" 
-                                                       Text="Profil" 
-                                                       TextColor="#045D2B" 
-                                                       FontSize="14"
-                                                       VerticalOptions="Center"
-                                                       HorizontalOptions="Center"
-                                                       Margin="0" />
+                                                           Text="Profil" 
+                                                           TextColor="#045D2B" 
+                                                           FontSize="14"
+                                                           VerticalOptions="Center"
+                                                           HorizontalOptions="Center"
+                                                           Margin="0" />
                                                 </VerticalStackLayout>
                                             </SwipeItemView>
                                         </SwipeItems>
@@ -142,21 +144,21 @@
                                     <Grid Padding="0" RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="*" Margin="0">
 
                                         <Grid Grid.Row="0" 
-                                          RowDefinitions="Auto,Auto" 
-                                          ColumnDefinitions="0.4*,*"
-                                          Margin="0"
-                                          Padding="10">
+                                              RowDefinitions="Auto,Auto" 
+                                              ColumnDefinitions="0.4*,*"
+                                              Margin="0"
+                                              Padding="10">
                                             <Border Grid.Row="0"
-                                                HeightRequest="90"
-                                                WidthRequest="90"
-                                                StrokeThickness="2"
-                                                Grid.Column="0"
-                                                Grid.RowSpan="2"
-                                                VerticalOptions="Center"
-                                                HorizontalOptions="Center"
-                                                Stroke="#E4C9C9"
-                                                Margin="0"
-                                                Padding="0">
+                                                    HeightRequest="90"
+                                                    WidthRequest="90"
+                                                    StrokeThickness="2"
+                                                    Grid.Column="0"
+                                                    Grid.RowSpan="2"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"
+                                                    Stroke="#E4C9C9"
+                                                    Margin="0"
+                                                    Padding="0">
                                                 <Border.StrokeShape>
                                                     <Ellipse/>
                                                 </Border.StrokeShape>
@@ -170,70 +172,77 @@
                                                     Margin="0"/>
                                             </Border>
                                             <Label Grid.Row="0" Grid.Column="1"  
-                                               Text="{Binding FirstName}" 
-                                               FontSize="Medium" 
-                                               FontAttributes="Bold" 
-                                               FontFamily="robotoR" 
-                                               HorizontalTextAlignment="Start"
-                                               VerticalTextAlignment="Center"/>
+                                                   Text="{Binding FirstName}" 
+                                                   FontSize="Medium" 
+                                                   FontAttributes="Bold" 
+                                                   FontFamily="robotoR" 
+                                                   HorizontalTextAlignment="Start"
+                                                   VerticalTextAlignment="Center"/>
                                             <Label Grid.Row="1" Grid.Column="1"  
-                                               Text="{Binding LastName}" 
-                                               FontSize="Medium" 
-                                               FontAttributes="Bold" 
-                                               FontFamily="robotoR" 
-                                               HorizontalTextAlignment="Start"
-                                               VerticalTextAlignment="Center"
-                                               />
+                                                   Text="{Binding LastName}" 
+                                                   FontSize="Medium" 
+                                                   FontAttributes="Bold" 
+                                                   FontFamily="robotoR" 
+                                                   HorizontalTextAlignment="Start"
+                                                   VerticalTextAlignment="Center"/>
                                         </Grid>
                                         <Label Grid.Row="1" 
-                                       Text="{Binding Mobile,Converter={StaticResource PhoneNumberFormatter}}" 
-                                       FontSize="Medium"  
-                                       Margin="0" 
-                                       FontFamily="robotoR" 
-                                       TextColor="DarkBlue"
-                                       HorizontalTextAlignment="Center"/>
+                                               Text="{Binding Mobile,Converter={StaticResource PhoneNumberFormatter}}" 
+                                               FontSize="Medium"  
+                                               Margin="0" 
+                                               FontFamily="robotoR" 
+                                               TextColor="DarkBlue"
+                                               HorizontalTextAlignment="Center"/>
                                         <Label Grid.Row="2"  
-                                       Text="{Binding Email}" 
-                                       FontSize="Medium" 
-                                       Margin="0,5,0,5" 
-                                       FontFamily="robotoR" 
-                                       TextColor="DarkBlue"
-                                       HorizontalTextAlignment="Center"/>
+                                               Text="{Binding Email}" 
+                                               FontSize="Medium" 
+                                               Margin="0,5,0,5" 
+                                               FontFamily="robotoR" 
+                                               TextColor="DarkBlue"
+                                               HorizontalTextAlignment="Center"/>
 
-                                        <BoxView Grid.Row="3" BackgroundColor="{Binding TypeColor}" Margin="0" />
-                                        <HorizontalStackLayout HorizontalOptions="End" 
-                                                           VerticalOptions="Center"
-                                                           Grid.Row="3" 
-                                                           Margin="5" Padding="0">
-                                            <Label  Text="Verbleibende Sitzungen" 
-                                                FontSize="Small" 
-                                                Margin="5" 
-                                                Padding="0" 
-                                                FontFamily="robotoR" 
-                                                TextColor="White" />
+                                        <Grid Grid.Row="3" Margin="0" Padding="0">
+                                            <BoxView  BackgroundColor="{Binding TypeColor}" Margin="0" />
+                                            <HorizontalStackLayout  HorizontalOptions="End" 
+                                                                    VerticalOptions="Center"
+                                                                    Margin="0" 
+                                                                    Padding="0">
+                                                <Label  Text="Verbleibende Sitzungen" 
+                                                        FontSize="Small" 
+                                                        Margin="10" 
+                                                        Padding="0" 
+                                                        FontFamily="robotoR" 
+                                                        TextColor="White"
+                                                        VerticalOptions="Center"/>
 
-                                            <Border Stroke="GreenYellow"
-                                                StrokeThickness="2"
-                                                BackgroundColor="Transparent"
-                                                WidthRequest="30"
-                                                HeightRequest="30"
-                                                HorizontalOptions="Center"
-                                                VerticalOptions="Center">
-                                                <Border.StrokeShape>
-                                                    <Ellipse />
-                                                </Border.StrokeShape>
+                                                <Border Stroke="GreenYellow"
+                                                        StrokeThickness="2"
+                                                        BackgroundColor="Transparent"
+                                                        WidthRequest="30"
+                                                        HeightRequest="30"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        Padding="0"
+                                                        Margin="10">
+                                                    <Border.StrokeShape>
+                                                        <Ellipse />
+                                                    </Border.StrokeShape>
 
-                                                <Label Text="{Binding Rebase}"
-                                                       HorizontalOptions="Center"
-                                                       VerticalOptions="Center"
-                                                       FontAttributes="Bold"
-                                                       FontSize="14"
-                                                       TextColor="White"/>
-                                            </Border>
-                                        </HorizontalStackLayout>
+                                                    <Label Text="{Binding Rebase}"
+                                                            HorizontalOptions="Center"
+                                                            VerticalOptions="Center"
+                                                            FontAttributes="Bold"
+                                                            FontSize="14"
+                                                            TextColor="White"
+                                                            Margin="0"
+                                                            Padding="0"/>
+                                                </Border>
+                                            </HorizontalStackLayout>
+                                        </Grid>
                                     </Grid>
                                 </SwipeView>
                             </Frame>
+                            </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

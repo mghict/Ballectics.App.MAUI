@@ -7,7 +7,7 @@
              Title="PersonQRCodeReaderPage"
              BackgroundColor="#E4C9C9">
 
-    <Grid>
+    <Grid MaximumWidthRequest="800">
 
         <ScrollView VerticalOptions="Start"
                     HorizontalOptions="Center"
@@ -89,12 +89,7 @@
                                     TextColor="WhiteSmoke"
                                     HorizontalOptions="Fill" 
                                     VerticalOptions="Center" />
-                            <Button Text="Abbrechen" 
-                                    Command="{Binding GoBackCommand}" 
-                                    BackgroundColor="IndianRed" 
-                                    TextColor="WhiteSmoke"
-                                    HorizontalOptions="Fill" 
-                                    VerticalOptions="Center" />
+                            
                             <Button Text="Neu"
                                     x:Name="btnNew"
                                     Clicked="btnNew_Clicked" 
@@ -105,7 +100,13 @@
                         </StackLayout>
                     </VerticalStackLayout>
                 </Frame>
-
+                <Button Text="Abbrechen" 
+                        Command="{Binding GoBackCommand}" 
+                        BackgroundColor="IndianRed" 
+                        TextColor="WhiteSmoke"
+                        HorizontalOptions="Fill" 
+                        VerticalOptions="Center"
+                        Margin="20"/>
             </StackLayout>
         </ScrollView>
 
